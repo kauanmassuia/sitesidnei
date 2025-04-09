@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexologia Thai - Aula Gratuita</title>
+    <style>
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cores baseadas no site de referência */
+        :root {
+            --orange: #FF6B00;
+            --teal: #00C2C2;
+            --pink: #FF0099;
+            --yellow: #FFD500;
+            --black: #333333;
+            --white: #FFFFFF;
+        }
+
+        /* Cabeçalho */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            max-width: 300px;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        /* Banner principal */
+        .main-banner {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .banner-content h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .banner-content .highlight {
+            background-color: var(--teal);
+            color: var(--white);
+            padding: 5px 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .banner-content .nivel {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Título do vídeo */
+        .video-title {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 20px;
+        }
+
+        .video-title h1 {
+            font-size: 2rem;
+            color: var(--black);
+            line-height: 1.4;
+        }
+
+        .video-title .highlight {
+            background-color: var(--teal);
+            color: var(--white);
+            padding: 5px 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .video-title .nivel {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Seção de vídeo */
+        .video-section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .video-section::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: var(--pink);
+            border-radius: 50%;
+            top: -20px;
+            left: -20px;
+            z-index: -1;
+        }
+
+        .video-section::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: var(--orange);
+            border-radius: 50%;
+            bottom: -10px;
+            right: 30%;
+            z-index: -1;
+        }
+
+        /* Novo estilo para o container de vídeo */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            background-color: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* Seção de evento */
+        .event-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .event-section::before {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            top: 40px;
+            right: -20px;
+            z-index: -1;
+        }
+
+        .event-section h2 {
+            background-color: var(--orange);
+            color: white;
+            display: inline-block;
+            padding: 10px 30px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .event-details {
+            margin-bottom: 25px;
+        }
+
+        .event-details p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .event-highlight {
+            font-weight: bold;
+            color: var(--teal);
+        }
+
+        .certification {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+
+        .certification-text {
+            color: var(--pink);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .certification-image {
+            width: 100px;
+            height: auto;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 30px auto 0;
+            padding: 15px 25px;
+            background-color: var(--orange);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.6);
+        }
+
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        /* Elementos decorativos */
+        .decoration {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            width: 50px;
+            height: 50px;
+            background-color: var(--teal);
+            bottom: 100px;
+            left: 5%;
+        }
+
+        .decoration-2 {
+            width: 30px;
+            height: 30px;
+            background-color: var(--orange);
+            top: 30%;
+            right: 10%;
+        }
+
+        .decoration-3 {
+            width: 40px;
+            height: 40px;
+            background-color: var(--pink);
+            bottom: 20%;
+            left: 20%;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .banner-content {
+                position: relative;
+                width: 100%;
+                padding: 20px;
+            }
+            
+            .banner-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .event-section {
+                padding: 20px;
+            }
+            
+            .event-section h2 {
+                font-size: 1.5rem;
+                padding: 8px 15px;
+            }
+            
+            .certification {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-content h1 {
+                font-size: 1.3rem;
+            }
+            
+            .banner-content .nivel {
+                font-size: 1.2rem;
+            }
+            
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .event-section::before,
+            .video-section::before,
+            .video-section::after {
+                display: none;
+            }
+            
+            .video-title {
+                margin-bottom: 40px;
+            }
+            
+            .video-title h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="assets/sidneicavalheirologo.avif" alt="Reflexologia Thai Logo">
+            </div>
+        </header>
+
+        <section class="video-section">
+            <div class="video-title">
+                <h1>1° Passo para se tornar um</h1>
+                <div class="highlight">REFLEXOLOGISTA</div>
+                <div class="nivel">DE ALTO NÍVEL</div>
+            </div>
+        
+            <div class="video-container">
+                <video controls autoplay muted playsinline preload="auto">
+                    <source src="/assets/Sobre_a_reflexologia.mp4" type="video/mp4">
+                    Seu navegador não suporta a reprodução de vídeo.
+                </video>
+            </div>
+        </section>
+        
+        <section class="event-section">
+            <h2>Terapias Thai</h2>
+            
+            <div class="event-details">
+                <p>Após assistir nossa aula gratuita, convidamos você para participar do nosso evento presencial exclusivo sobre Reflexologia Thai, onde vamos aprofundar todo o conteúdo e proporcionar uma experiência completa de aprendizado.</p>
+                
+                <p>A Reflexologia Thai é uma abordagem de cura natural que trabalha com pontos específicos nos pés para equilibrar a energia do corpo e promover bem-estar.</p>
+                
+                <p><span class="event-highlight">Data:</span> 12 e 13 de Abril de 2025</p>
+                <p><span class="event-highlight">Local:</span> Rua José Osório, 124, Madalena - Recife</p>
+                <p><span class="event-highlight">Horário:</span> Das 8h30 às 17h30</p>
+                
+                <div class="certification">
+                    <div class="certification-text">Opcional: Certificação Internacional</div>
+                </div>
+                
+                <p>Vagas limitadas! Não perca esta oportunidade única de transformar seus conhecimentos e iniciar uma nova carreira na área de terapias naturais.</p>
+            </div>
+            
+            <a href="https://www.sympla.com.br/evento/reflexologia-thai---recife--12-e-13-abril-2025/2845133" class="cta-button" target="_blank" rel="noopener noreferrer">
+                Garantir Minha Vaga
+            </a>        
+        </section>
+        
+        <!-- Elementos decorativos -->
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="decoration decoration-3"></div>
+        
+        <footer class="footer">
+            <p>&copy; 2025 - Reflexologia Thai - Todos os direitos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>
